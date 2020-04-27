@@ -1,0 +1,22 @@
+{
+  "name": "back-proyect_event",
+  "version": "1.0.0",
+  "description": "## Introduction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SugarSkull59/Back-Proyect_Event.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SugarSkull59/Back-Proyect_Event/issues"
+  },
+  "homepage": "https://github.com/SugarSkull59/Back-Proyect_Event#readme",
+  "dependencies": {
+    "standart": "^6.1.0"
+  }
+}
