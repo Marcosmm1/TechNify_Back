@@ -8,7 +8,8 @@ const usersRouter = require('./user.router')
 const eventRouter = require('./event.router')
 
 router.use('/auth', authRouter)
-router.use('/me/users', authUser, usersRouter)
+router.use('/me', authUser, usersRouter)
+router.use('/me/events', eventRouter)
 router.use('/events', eventRouter)
 
 // router.get('/whoami', authUser, (req, res) => {

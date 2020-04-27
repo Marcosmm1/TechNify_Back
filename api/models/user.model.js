@@ -43,11 +43,11 @@ const userSchema = new mongoose.Schema({
     type: Date,
     required: false
   },
-  wishes_list: {
+  wishes_list: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'event',
     required: false
-  },
+  }],
   role: {
     type: String,
     enum: ['USER', 'ORGANIZER', 'ADMIN'],

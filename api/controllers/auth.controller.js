@@ -13,7 +13,6 @@ module.exports = {
 }
 
 function signup(req, res) {
-  console.log("dentro ");
   if (!req.body.password) {
     res.json({
       error: 'Password required'
@@ -26,8 +25,8 @@ function signup(req, res) {
     })
     .then(() => {
       const token = jwt.sign({
-          email: req.body.email
-        },
+        email: req.body.email
+      },
         process.env.SECRET, // TAKE SECRET KEY FROM .ENV
         {
           expiresIn: '1w'
@@ -69,11 +68,11 @@ function login(req, res) {
         }
 
         const token = jwt.sign({
-            email: user.email
-          },
+          email: user.email
+        },
           process.env.SECRET, {
-            expiresIn: '1h'
-          }
+          expiresIn: '1h'
+        }
         )
 
         return res.json({
@@ -87,15 +86,11 @@ function login(req, res) {
 }
 
 function checkRoles(req, res, next) {
-  var roles = res.locals.user.role
-  console.log("hola");
-  User.find(roles)
-  if (req.user.role === "USER") {
-    console.log("role");
+  User
+    .find(res.locals.user._id)
+  if (res.locals.user.role === "ADMIN") {
     return next()
   } else {
-    console.log("no eres organizador")
     res.redirect('/events')
-
   }
 }

@@ -5,11 +5,7 @@ const {
 
 module.exports = {
   getAllEvents,
-  getEvent,
-  getMyEvent,
-  createEvent,
-  updateEvent,
-  deleteEvent
+  getEvent
 }
 // Función que te da todos los eventos o hace filter por tipo o fecha, sin loguearte
 function getAllEvents(req, res) {
@@ -37,37 +33,4 @@ function getEvent(req, res) {
     .findById(req.params.id)
     .then(response => res.json(response))
     .catch((err) => handleError(err, res))
-}
-
-function getMyEvent() {}
-
-function createEvent(req, res) {
-  console.log("funcion create");
-  const event = {
-    owner: res.locals.user,
-    ...req.body
-  }
-  Event
-    .create(event)
-    .then(response => res.json(response))
-    .catch(err => handleError(err, res))
-}
-
-function updateEvent(req, res) {
-  Event
-    .findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    })
-    .then(response => res.json(response))
-    .catch((err) => handleError(err, res))
-}
-
-function deleteEvent(req, res) {
-  Event
-    .remove({
-      _id: req.params.id
-    })
-    .then(response => res.json(response))
-    .catch(err => handleError(err, res))
 }
