@@ -104,8 +104,8 @@ Happy coding!
 ### EVENT MODEL
 | KEY                  | TYPE     | REQUIRED  |  EXTRA
 | -------------------- | -------- | --------- |----------
-| owner                | ObjectId |           |
-| name                 | String   |           |
+| owner                | ObjectId |  false    |
+| name                 | String   |  true     |
 | place                | String   |  true     |
 | date                 | Date     |  true     |
 | price                | Number   |  true     |
