@@ -47,10 +47,10 @@ $ cp .env.example .env
 
 And customize the sample params to your needs
 
-- mongoURL: "mongodb://localhost/",
-- mongoDBName: 'reboot',
+- mongoURL: "mongodb://localhost:3000/api",
+- mongoDBName: 'EventIt',
 - apiKeys : "fakeapikey",
-- port : 5000
+- port : 3000
 
 Happy coding!
 
@@ -60,61 +60,52 @@ Happy coding!
 
 | KEY            | TYPE     | REQUIRED | VALIDATIONS  | EXTRA |
 | -------------- | -------- | ---------|------------- |-------
-| firstName      | String   | true     |              |
-| lastName       | String   | true     |              |
-| email          | String   | true     | regex(email  |
+| first_name     | String   | true     |              |
+| last_name      | String   | true     |              |
+| email          | String   | true     | regex(email) |
 | password       | String   | true     | min(8)       |
 | mobile         | String   | true     | min(6)       |
 | social_tw      | String   | false    |              |
 | social_fb      | String   | false    |              |
-| social_it      | String   | false    |              |
+| social_ig      | String   | false    |              |
 | social_lk      | String   | false    |              |
 | birthday       | Date     | false    |              |
-| favorites      | ObjectId | false    |              | Events favorites
-| role           | String   | true     |              | Enum: User, Organizer, default: User
-| VATIN          | String   | true     | regex(dni)   |
-| business_name  | String   | true     |              |
-| organizer_type | String   | true     |              |
-| address        | String   | true     |              |
-| postal_code    | String   | true     |              |
+| wishes_list    |[ObjectId]| false    | Ref: Event   | Events Wishes_list
+| role           | String   | true     |              | Enum: ADMIN, USER, ORGANIZER, default: USER
+| VATIN          | String   | false    | regex(dni)   |
+| business_name  | String   | false    |              |
+| organizer_inf  | String   | false    |              |
+| address        | String   | false    |              |
+| zip_code       | String   | false    |              |
+| published      | Boolean  | false    |              |
+| createAt       | String   |  true    |
 
-
-<!-- ### ORGANIZADOR MODEL
-
-
-| KEY            | TYPE   | REQUIRED | VALIDATIONS  | EXTRA |
-| -------------- | ------ | ---------|------------- |-------
-| firstName      | String | true     |              |
-| lastName       | String | true     |              |
-| VATIN          | String | true     |              |
-| business_name  | String | true     |              |
-| organizer_type | String | true     |              |
-| address        | String | true     |              |
-| postal_code    | String | true     |              |
-| email          | String | true     | regex(email  |
-| password       | String | true     | min(8)       |
-| mobile         | String | true     | min(6)       |
-| social_tw      | String | false    |              |
-| social_fb      | String | false    |              |
-| social_it      | String | false    |              |
-| social_lk      | String | false    |              |
-| favorites      | ObjectId | false  |              | Events favorites
-| role           | String | true     |              | Enum: User, Organizer, default: User -->
 
 ### EVENT MODEL
+
+
 | KEY                  | TYPE     | REQUIRED  |  EXTRA
 | -------------------- | -------- | --------- |----------
-| owner                | ObjectId |  false    |
+| owner                | ObjectId |  false    | Ref: User
 | name                 | String   |  true     |
 | place                | String   |  true     |
-| date                 | Date     |  true     |
+| date_start           | Date     |  true     |
+| date_end             | Date     |  false    |
 | price                | Number   |  true     |
-| type                 | String   |  true     | enum: Web Development, UX, product_presentation
+| type                 | ObjectId |  true     | Ref: Type
 | small_description    | String   |  true     |
 | large_description    | String   |  true     |
 | cover_img            | String   |  true     |
-| detail_img           | String   |  true     |
+| detail_img           | [String] |  true     |
+| createAt             | String   |  true     |
 
+
+### TYPE-MODEL
+
+| KEY                  | TYPE     | REQUIRED  |  EXTRA
+| -------------------- | -------- | --------- |----------
+| name                 | String   |  true     |
+| createAt             | String   |  true     |
 
 ## API ROUTES
 
@@ -132,16 +123,16 @@ POST http://DOMAIN/api/auth/signup
 | POST   | `auth/signup` | Create a new account |
 | POST   | `auth/login`  | Authenticates a user |
 
-### USER COMMENTS
+
+### USER ENDPOINTS
 > TOKEN Required: YES
 
 | METHOD | URL             | What does it do  | Extra
 | ------ | --------------- | ---------------- | -----
-| GET    | `/users`        | Get All Users    | SUPER ADMIN
-| GET    | `/users/:id`    | Get User         |
-| POST   | `/users`        | Create User      |
-| PUT    | `/users/:id`    | Update a User    |
-| DELETE | `/users/:id`    | Deletes User     |
+| GET    | `/users`        | Get All Users    | CHECKADMIN
+| GET    | `me/users`      | Get Profile      |
+| PUT    | `me/users`      | Update Profile   |
+| DELETE | `me/users`      | Deletes Account  |
 
 ### EVENT ENDPOINTS
 > TOKEN Required: NO
@@ -155,7 +146,7 @@ POST http://DOMAIN/api/auth/signup
 
 | METHOD | URL             | What does it do                           | Filters                         |
 | ------ | ----------------| ------------------------------------------| --------------------------------|
-| GET    | `me/events`     | Get All Organizer or User-Favorites Events|                                 |
+| GET    | `me/events`     | Get All Organizer or User-Wishes Events   |                                 |
 | POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role   |
 | PUT    | `me/events/:id` | Update Event Organizer                    |                                 |
 | DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |                                 |
