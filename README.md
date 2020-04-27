@@ -147,14 +147,15 @@ POST http://DOMAIN/api/auth/signup
 > TOKEN Required: NO
 
 | METHOD | URL          | What does it do | Filters
-| ------ | -------------| ----------------| --------
+| ------ | -------------| ----------------|-------------------------|
 | GET    | `events`     | Get All Events  | Types, Dates of from date to other date
 | GET    | `events/:id` | Get One Event   |
 
 > TOKEN Required: YES
 
-| METHOD | URL             | What does it do                           | Filters
-| GET    | `me/events`     | Get All Organizer / User-Favorites Events |
-| POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role
-| PUT    | `me/events/:id` | Update Event Organizer                    |
-| DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |
+| METHOD | URL             | What does it do                           | Filters                         |
+| ------ | ----------------| ------------------------------------------| --------------------------------|
+| GET    | `me/events`     | Get All Organizer or User-Favorites Events|                                 |
+| POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role   |
+| PUT    | `me/events/:id` | Update Event Organizer                    |                                 |
+| DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |                                 |
