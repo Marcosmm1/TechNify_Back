@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const UserModel = require('../models/user.model')
+const User = require('../models/user.model')
 
 // Authenticate Middleware
 function authUser(req, res, next) {
@@ -15,7 +15,7 @@ function authUser(req, res, next) {
         })
       }
 
-      UserModel
+      User
         .findOne({
           email: token.email
         })

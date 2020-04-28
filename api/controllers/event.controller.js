@@ -1,4 +1,5 @@
 const Event = require('../models/event.model')
+const EventType = require('../models/event-type.model')
 const {
   handleError
 } = require('../utils')
@@ -7,30 +8,28 @@ module.exports = {
   getAllEvents,
   getEvent
 }
-// Función que te da todos los eventos o hace filter por tipo o fecha, sin loguearte
+
 function getAllEvents(req, res) {
   const query = {}
 
-  /*   if (req.query.type) {
-      query.type = {
-        $regex: `${req.query.type}`,
-        $options: 'i'
-      }
+  if (req.query.event_type) {
+    query.event_type = { $regex: `${req.query.event_type}`, $options: 'i' }
+  }
+  if (req.query.date_start) {
+    query.date_start = {
+      $eq: `${req.query.date_start}`
     }
-    if (req.query.date_start) {
-      query.date = {
-        $eq: `${req.query.date_start}`
-      }
-    } */
+  }
   Event
     .find(query)
-    .then(response => res.json(response))
+    .populate('event_type')
+    .then(events => res.json(events))
     .catch((err) => handleError(err, res))
 }
 
 function getEvent(req, res) {
   Event
     .findById(req.params.id)
-    .then(response => res.json(response))
+    .then(event => res.json(event))
     .catch((err) => handleError(err, res))
 }

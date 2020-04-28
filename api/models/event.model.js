@@ -26,9 +26,9 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     required: false
   },
-  type: {
+  event_type: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'type',
+    ref: 'event_type',
     required: true
   },
   small_description: {

@@ -124,15 +124,24 @@ POST http://DOMAIN/api/auth/signup
 | POST   | `auth/login`  | Authenticates a user |
 
 
-### USER ENDPOINTS
+### ADMIN ENDPOINTS
 > TOKEN Required: YES
 
 | METHOD | URL             | What does it do  | Extra
 | ------ | --------------- | ---------------- | -----
 | GET    | `/users`        | Get All Users    | CHECKADMIN
-| GET    | `me/users`      | Get Profile      |
-| PUT    | `me/users`      | Update Profile   |
-| DELETE | `me/users`      | Deletes Account  |
+| GET    | `/events`       | Get Events       | CHECKADMIN
+| PUT    | `/events/:id`   | Update event     | CHECKADMIN
+
+
+### USER ENDPOINTS
+> TOKEN Required: YES
+
+| METHOD | URL             | What does it do  | Extra
+| ------ | --------------- | ---------------- | -----
+| GET    | `me      `      | Get Profile      |
+| PUT    | `me`            | Update Profile   |
+| DELETE | `me`            | Deletes Account  |
 
 ### EVENT ENDPOINTS
 > TOKEN Required: NO

@@ -11,5 +11,5 @@ const typeSchema = new mongoose.Schema({
   }
 })
 
-const typeModel = mongoose.model('type', typeSchema)
+const typeModel = mongoose.model('event_type', typeSchema)
 module.exports = typeModel
