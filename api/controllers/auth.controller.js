@@ -25,8 +25,8 @@ function signup(req, res) {
     })
     .then(() => {
       const token = jwt.sign({
-        email: req.body.email
-      },
+          email: req.body.email
+        },
         process.env.SECRET, // TAKE SECRET KEY FROM .ENV
         {
           expiresIn: '1w'
@@ -35,7 +35,7 @@ function signup(req, res) {
       return res.json({
         token: token,
         email: req.body.email,
-        name: req.body.name
+        first_name: req.body.first_name
       })
     })
     .catch((err) => {
@@ -68,17 +68,17 @@ function login(req, res) {
         }
 
         const token = jwt.sign({
-          email: user.email
-        },
+            email: user.email
+          },
           process.env.SECRET, {
-          expiresIn: '1h'
-        }
+            expiresIn: '1h'
+          }
         )
 
         return res.json({
           token: token,
           email: user.email,
-          name: user.name
+          first_name: user.first_name
         })
       })
     })
