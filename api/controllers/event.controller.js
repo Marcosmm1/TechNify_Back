@@ -13,8 +13,9 @@ function getAllEvents(req, res) {
   const query = {}
 
   if (req.query.event_type) {
-    query.event_type = { $regex: `${req.query.event_type}`, $options: 'i' }
+    query.event_type = req.query.event_type
   }
+
   if (req.query.date_start) {
     query.date_start = {
       $eq: `${req.query.date_start}`
