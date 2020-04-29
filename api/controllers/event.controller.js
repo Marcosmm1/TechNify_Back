@@ -11,11 +11,6 @@ module.exports = {
 
 function getAllEvents(req, res) {
   const query = {}
-
-  if (req.query.event_type) {
-    query.event_type = req.query.event_type
-  }
-
   if (req.query.date_start) {
     query.date_start = {
       $eq: `${req.query.date_start}`
@@ -24,7 +19,13 @@ function getAllEvents(req, res) {
   Event
     .find(query)
     .populate('event_type')
-    .then(events => res.json(events))
+    .then(events => {
+      if (!req.query.event_type) {
+        return res.json(events)
+      }
+      const eventsFilterByEventType = events.filter(event => event.event_type.name === req.query.event_type)
+      res.json(eventsFilterByEventType)
+    })
     .catch((err) => handleError(err, res))
 }
 

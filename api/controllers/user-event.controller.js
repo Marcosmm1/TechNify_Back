@@ -17,6 +17,7 @@ module.exports = {
 function getOrganizerEvents(req, res) {
   Event
     .find({ owner: res.locals.user._id })
+    .populate('owner')
     .then(response => res.json(response))
     .catch((err) => handleError(err, res))
 }
