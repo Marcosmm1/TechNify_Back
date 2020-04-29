@@ -12,7 +12,7 @@ const {
   deleteEvent
 } = require('../controllers/user-event.controller')
 
-router.get('/', checkRoles, getOrganizerEvents)
+router.get('/myevents', checkRoles, getOrganizerEvents)
 router.post('/', checkRoles, createEvent)
 router.get('/wishes', getListWishes) // ADMIN
 router.post('/wishes', addWhisesToList)

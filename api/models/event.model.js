@@ -39,10 +39,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  cover_img: {
+  cover_img: [{
     type: String,
     required: true
-  },
+  }],
   detail_img: {
     type: String,
     required: true

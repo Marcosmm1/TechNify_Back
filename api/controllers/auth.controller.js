@@ -25,8 +25,8 @@ function signup(req, res) {
     })
     .then(() => {
       const token = jwt.sign({
-          email: req.body.email
-        },
+        email: req.body.email
+      },
         process.env.SECRET, // TAKE SECRET KEY FROM .ENV
         {
           expiresIn: '1w'
@@ -68,17 +68,18 @@ function login(req, res) {
         }
 
         const token = jwt.sign({
-            email: user.email
-          },
+          email: user.email
+        },
           process.env.SECRET, {
-            expiresIn: '1h'
-          }
+          expiresIn: '1h'
+        }
         )
 
         return res.json({
           token: token,
           email: user.email,
-          first_name: user.first_name
+          first_name: user.first_name,
+          role: user.role
         })
       })
     })
@@ -88,7 +89,7 @@ function login(req, res) {
 function checkRoles(req, res, next) {
   User
     .find(res.locals.user._id)
-  if (res.locals.user.role === "ADMIN") {
+  if (res.locals.user.role === "ORGANIZER") {
     return next()
   } else {
     res.redirect('/events')
