@@ -14,15 +14,18 @@ module.exports = {
   deleteEvent
 }
 
-function getOrganizerEvents(req, res) {
+function getOrganizerEvents (req, res) {
   Event
-    .find({ owner: res.locals.user._id })
+    .find({
+      owner: res.locals.user._id
+    })
     .populate('owner')
+    .populate('event_type')
     .then(response => res.json(response))
     .catch((err) => handleError(err, res))
 }
 
-function createEvent(req, res) {
+function createEvent (req, res) {
   const newEvent = {
     owner: res.locals.user,
     ...req.body
@@ -33,7 +36,7 @@ function createEvent(req, res) {
     .catch(err => handleError(err, res))
 }
 
-function getListWishes(req, res) {
+function getListWishes (req, res) {
   User
     .findById(res.locals.user._id)
     .populate('wishes_list')
@@ -41,7 +44,7 @@ function getListWishes(req, res) {
     .catch((err) => console.error(error))
 }
 
-function addWhisesToList(req, res) {
+function addWhisesToList (req, res) {
   User
     .findById(res.locals.user._id)
     .then(user => {
@@ -52,7 +55,7 @@ function addWhisesToList(req, res) {
     })
 }
 
-function updateEvent(req, res) {
+function updateEvent (req, res) {
   Event
     .findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -62,8 +65,7 @@ function updateEvent(req, res) {
     .catch((err) => handleError(err, res))
 }
 
-
-function deleteEvent(req, res) {
+function deleteEvent (req, res) {
   Event
     .remove({
       _id: req.params.id

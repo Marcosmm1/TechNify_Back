@@ -9,7 +9,7 @@ module.exports = {
   getEvent
 }
 
-function getAllEvents(req, res) {
+function getAllEvents (req, res) {
   const query = {}
   if (req.query.date_start) {
     query.date_start = {
@@ -30,7 +30,7 @@ function getAllEvents(req, res) {
     .catch((err) => handleError(err, res))
 }
 
-function getEvent(req, res) {
+function getEvent (req, res) {
   Event
     .findById(req.params.id)
     .then(event => res.json(event))
