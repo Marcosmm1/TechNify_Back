@@ -19,6 +19,7 @@ function getAllEvents(req, res) {
   Event
     .find(query)
     .populate('event_type')
+    .populate('owner')
     .then(events => {
       if (!req.query.event_type) {
         return res.json(events)
