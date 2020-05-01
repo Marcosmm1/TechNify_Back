@@ -41,11 +41,11 @@ const eventSchema = new mongoose.Schema({
   },
   cover_img: [{
     type: String,
-    required: true
+    required: false
   }],
   detail_img: {
     type: String,
-    required: true
+    required: false
   },
   createdAt: {
     type: Number,
