@@ -6,8 +6,9 @@ const {
 
 module.exports = {
   getAllEvents,
-  getEvent
+  getEvent,
 }
+
 
 function getAllEvents (req, res) {
   const query = {}
