@@ -13,7 +13,6 @@ module.exports = {
 }
 
 function getAllUsers(req, res) {
-  console.log(res.locals.user.role);
   User
     .find()
     .then(response => res.json(response))
@@ -21,7 +20,6 @@ function getAllUsers(req, res) {
 }
 
 function getUserById(req, res) {
-  console.log(res.locals.user.role);
   User
     .findById(res.locals.user._id)
     .then(response => res.json(response))
