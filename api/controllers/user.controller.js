@@ -13,11 +13,12 @@ module.exports = {
 }
 
 function getAllUsers(req, res) {
-  console.log(res.locals.user.role);
-  User
-    .find()
-    .then(response => res.json(response))
-    .catch((err) => handleError(err, res))
+  if(res.locals.user.role === "ADMIN"){
+    User
+      .find()
+      .then(response => res.json(response))
+      .catch((err) => handleError(err, res))
+  }
 }
 
 function getUserById(req, res) {

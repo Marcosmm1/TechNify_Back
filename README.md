@@ -129,9 +129,9 @@ POST http://DOMAIN/api/auth/signup
 
 | METHOD | URL             | What does it do  | Extra
 | ------ | --------------- | ---------------- | -----
-| GET    | `/users`        | Get All Users    | CHECKADMIN
-| GET    | `/events`       | Get Events       | CHECKADMIN
-| PUT    | `/events/:id`   | Update event     | CHECKADMIN
+| GET    | `/admin/users`        | Get All Users    | CHECKADMIN
+<!-- | GET    | `/admin/events`       | Get Events       | CHECKADMIN -->
+<!-- | PUT    | `/events/:id`         | Update event     | CHECKADMIN -->
 
 
 ### USER ENDPOINTS
