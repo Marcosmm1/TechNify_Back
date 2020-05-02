@@ -10,11 +10,12 @@ module.exports = {
   createEvent,
   getListWishes,
   addWhisesToList,
+  removeToWishesList,
   updateEvent,
   deleteEvent
 }
 
-function getOrganizerEvents (req, res) {
+function getOrganizerEvents(req, res) {
   Event
     .find({
       owner: res.locals.user._id
@@ -25,7 +26,7 @@ function getOrganizerEvents (req, res) {
     .catch((err) => handleError(err, res))
 }
 
-function createEvent (req, res) {
+function createEvent(req, res) {
   const newEvent = {
     owner: res.locals.user,
     ...req.body
@@ -36,7 +37,7 @@ function createEvent (req, res) {
     .catch(err => handleError(err, res))
 }
 
-function getListWishes (req, res) {
+function getListWishes(req, res) {
   User
     .findById(res.locals.user._id)
     .populate('wishes_list')
@@ -44,7 +45,7 @@ function getListWishes (req, res) {
     .catch((err) => console.error(error))
 }
 
-function addWhisesToList (req, res) {
+function addWhisesToList(req, res) {
   User
     .findById(res.locals.user._id)
     .then(user => {
@@ -55,7 +56,29 @@ function addWhisesToList (req, res) {
     })
 }
 
-function updateEvent (req, res) {
+function removeToWishesList(req, res) {
+  const wishesId = req.params.wishesId
+  User
+    .findById(res.locals.user._id)
+    .then(user => {
+      user.wishes_list.remove(wishesId)
+      user.save()
+        .then(res.json(user))
+        .catch((err) => console.error(error))
+    })
+}
+
+// function removeLessonFromUser(req, res) {
+//   UserLesson
+//     .remove({
+//       user: res.locals.user._id,
+//       lesson: req.params.lessonId
+//     })
+//     .then(lessons => res.json(lessons))
+//     .catch((err) => handleError(err, res))
+// }
+
+function updateEvent(req, res) {
   Event
     .findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -65,7 +88,7 @@ function updateEvent (req, res) {
     .catch((err) => handleError(err, res))
 }
 
-function deleteEvent (req, res) {
+function deleteEvent(req, res) {
   Event
     .remove({
       _id: req.params.id
