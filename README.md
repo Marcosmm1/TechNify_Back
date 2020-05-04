@@ -65,80 +65,26 @@ Happy coding!
 
 | KEY            | TYPE     | REQUIRED | VALIDATIONS  | EXTRA |
 | -------------- | -------- | ---------|------------- |-------
-| firstName      | String   | true     |              |
-| lastName       | String   | true     |              |
-| email          | String   | true     | regex(email  |
 | first_name     | String   | true     |              |
 | last_name      | String   | true     |              |
-| email          | String   | true     | regex(email) |
+| email          | String   | true     | regex(email  |
 | password       | String   | true     | min(8)       |
 | mobile         | String   | true     | min(6)       |
 | social_tw      | String   | false    |              |
 | social_fb      | String   | false    |              |
-<<<<<<< HEAD
 | social_it      | String   | false    |              |
 | social_lk      | String   | false    |              |
 | birthday       | Date     | false    |              |
-| favorites      | ObjectId | false    |              | Events favorites
+| wishes_list    | ObjectId | false    |              | Events favorites
 | role           | String   | true     |              | Enum: User, Organizer, default: User
 | VATIN          | String   | true     | regex(dni)   |
 | business_name  | String   | true     |              |
 | organizer_type | String   | true     |              |
 | address        | String   | true     |              |
-| postal_code    | String   | true     |              |
-
-
-### ORGANIZADOR MODEL
-
-
-| KEY            | TYPE   | REQUIRED | VALIDATIONS  | EXTRA |
-| -------------- | ------ | ---------|------------- |-------
-| firstName      | String | true     |              |
-| lastName       | String | true     |              |
-| VATIN          | String | true     |              |
-| business_name  | String | true     |              |
-| organizer_type | String | true     |              |
-| address        | String | true     |              |
-| postal_code    | String | true     |              |
-| email          | String | true     | regex(email  |
-| password       | String | true     | min(8)       |
-| mobile         | String | true     | min(6)       |
-| social_tw      | String | false    |              |
-| social_fb      | String | false    |              |
-| social_it      | String | false    |              |
-| social_lk      | String | false    |              |
-| favorites      | ObjectId | false  |              | Events favorites
-| role           | String | true     |              | Enum: User, Organizer, default: User -->
-
-### EVENT MODEL
-| KEY                  | TYPE     | REQUIRED  |  EXTRA
-| -------------------- | -------- | --------- |----------
-| owner                | ObjectId |           |
-| name                 | String   |           |
-| place                | String   |  true     |
-| date                 | Date     |  true     |
-| price                | Number   |  true     |
-| type                 | String   |  true     | enum: Web Development, UX, product_presentation
-| small_description    | String   |  true     |
-| large_description    | String   |  true     |
-| cover_img            | String   |  true     |
-| detail_img           | String   |  true     |
-| social_ig      | String   | false    |              |
-| social_lk      | String   | false    |              |
-| birthday       | Date     | false    |              |
-| wishes_list    |[ObjectId]| false    | Ref: Event   | Events Wishes_list
-| role           | String   | true     |              | Enum: ADMIN, USER, ORGANIZER, default: USER
-| VATIN          | String   | false    | regex(dni)   |
-| business_name  | String   | false    |              |
-| organizer_inf  | String   | false    |              |
-| address        | String   | false    |              |
-| zip_code       | String   | false    |              |
-| published      | Boolean  | false    |              |
-| createAt       | String   |  true    |
+| zip_code       | String   | true     |              |
 
 
 ### EVENT MODEL
-
 
 | KEY                  | TYPE     | REQUIRED  |  EXTRA
 | -------------------- | -------- | --------- |----------
@@ -179,17 +125,16 @@ POST http://DOMAIN/api/auth/signup
 | POST   | `auth/signup` | Create a new account |
 | POST   | `auth/login`  | Authenticates a user |
 
-### USER COMMENTS
-=======
 
 ### ADMIN ENDPOINTS
+
 > TOKEN Required: YES
 
-| METHOD | URL             | What does it do  | Extra
-| ------ | --------------- | ---------------- | -----
-| GET    | `/admin/users`        | Get All Users    | CHECKADMIN
-<!-- | GET    | `/admin/events`       | Get Events       | CHECKADMIN -->
-<!-- | PUT    | `/events/:id`         | Update event     | CHECKADMIN -->
+| METHOD | URL                  | What does it do  | Extra
+| ------ | ---------------------| ---------------- | -----
+| GET    | `admin/users`        | Get All Users    | CHECKADMIN
+| GET    | `admin/events`       | Get Events       | CHECKADMIN
+| PUT    | `admin/events/:id`   | Update event     | CHECKADMIN
 
 
 ### USER ENDPOINTS
@@ -198,17 +143,14 @@ POST http://DOMAIN/api/auth/signup
 
 | METHOD | URL             | What does it do  | Extra
 | ------ | --------------- | ---------------- | -----
-| GET    | `/users`        | Get All Users    | SUPER ADMIN
-| GET    | `/users/:id`    | Get User         |
-| POST   | `/users`        | Create User      |
-| PUT    | `/users/:id`    | Update a User    |
-| DELETE | `/users/:id`    | Deletes User     |
 | GET    | `me      `      | Get Profile      |
-| PUT    | `me`            | Update Profile   |
+| PUT    | `me`            | Update a User    |
+| PUT    | `me/password`   | Update My Password  |
 | DELETE | `me`            | Deletes Account  |
 
 
 ### EVENT ENDPOINTS
+
 > TOKEN Required: NO
 
 | METHOD | URL          | What does it do | Filters
@@ -216,17 +158,16 @@ POST http://DOMAIN/api/auth/signup
 | GET    | `events`     | Get All Events  | Types, Dates of from date to other date
 | GET    | `events/:id` | Get One Event   |
 
+### EVENT USER ENPOINTS
+
 > TOKEN Required: YES
 
-| METHOD | URL             | What does it do                           | Filters
-| GET    | `me/events`     | Get All Organizer / User-Favorites Events |
-| POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role
-| PUT    | `me/events/:id` | Update Event Organizer                    |
-| DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |
-=======
-| METHOD | URL             | What does it do                           | Filters                         |
-| ------ | ----------------| ------------------------------------------| --------------------------------|
-| GET    | `me/events`     | Get All Organizer or User-Wishes Events   |                                 |
-| POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role   |
-| PUT    | `me/events/:id` | Update Event Organizer                    |                                 |
-| DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |                                 |
+| METHOD | URL                | What does it do                           | Filters                         |
+| ------ | -------------------| ------------------------------------------| --------------------------------|
+| GET    | `me/events/myevents`| Get Organizer Events                     |                                 |
+| GET    | `me/events/wishes` | Get User Wishes                           |                                 |
+| POST   | `me/events/wishes` | Add Event to Wishes Organizer             | Implement Function Check Role   |
+| POST   | `me/events`        | Create One Event Organizer                | Implement Function Check Role   |
+| PUT    | `me/events/:id`    | Update Event Organizer                    |                                 |
+| DELETE | `me/events/:id`    | Delete Event  Organizer/Favorites         |                                 |
+| DELETE | `me/events/wishes/:d`| Delete Event  Organizer/Favorites       |                                 |
