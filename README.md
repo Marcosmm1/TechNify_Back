@@ -57,8 +57,6 @@ And customize the sample params to your needs
 - mongoDBName: 'EventIt',
 - apiKeys : "fakeapikey",
 - port : 3000
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
-
 Happy coding!
 
 ## MODELS
@@ -67,15 +65,12 @@ Happy coding!
 
 | KEY            | TYPE     | REQUIRED | VALIDATIONS  | EXTRA |
 | -------------- | -------- | ---------|------------- |-------
-<<<<<<< HEAD
 | firstName      | String   | true     |              |
 | lastName       | String   | true     |              |
 | email          | String   | true     | regex(email  |
-=======
 | first_name     | String   | true     |              |
 | last_name      | String   | true     |              |
 | email          | String   | true     | regex(email) |
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
 | password       | String   | true     | min(8)       |
 | mobile         | String   | true     | min(6)       |
 | social_tw      | String   | false    |              |
@@ -93,7 +88,7 @@ Happy coding!
 | postal_code    | String   | true     |              |
 
 
-<!-- ### ORGANIZADOR MODEL
+### ORGANIZADOR MODEL
 
 
 | KEY            | TYPE   | REQUIRED | VALIDATIONS  | EXTRA |
@@ -128,8 +123,6 @@ Happy coding!
 | large_description    | String   |  true     |
 | cover_img            | String   |  true     |
 | detail_img           | String   |  true     |
-
-=======
 | social_ig      | String   | false    |              |
 | social_lk      | String   | false    |              |
 | birthday       | Date     | false    |              |
@@ -169,7 +162,6 @@ Happy coding!
 | -------------------- | -------- | --------- |----------
 | name                 | String   |  true     |
 | createAt             | String   |  true     |
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
 
 ## API ROUTES
 
@@ -187,7 +179,6 @@ POST http://DOMAIN/api/auth/signup
 | POST   | `auth/signup` | Create a new account |
 | POST   | `auth/login`  | Authenticates a user |
 
-<<<<<<< HEAD
 ### USER COMMENTS
 =======
 
@@ -202,38 +193,31 @@ POST http://DOMAIN/api/auth/signup
 
 
 ### USER ENDPOINTS
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
+
 > TOKEN Required: YES
 
 | METHOD | URL             | What does it do  | Extra
 | ------ | --------------- | ---------------- | -----
-<<<<<<< HEAD
 | GET    | `/users`        | Get All Users    | SUPER ADMIN
 | GET    | `/users/:id`    | Get User         |
 | POST   | `/users`        | Create User      |
 | PUT    | `/users/:id`    | Update a User    |
 | DELETE | `/users/:id`    | Deletes User     |
-=======
 | GET    | `me      `      | Get Profile      |
 | PUT    | `me`            | Update Profile   |
 | DELETE | `me`            | Deletes Account  |
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
+
 
 ### EVENT ENDPOINTS
 > TOKEN Required: NO
 
 | METHOD | URL          | What does it do | Filters
-<<<<<<< HEAD
-| ------ | -------------| ----------------| --------
-=======
 | ------ | -------------| ----------------|-------------------------|
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
 | GET    | `events`     | Get All Events  | Types, Dates of from date to other date
 | GET    | `events/:id` | Get One Event   |
 
 > TOKEN Required: YES
 
-<<<<<<< HEAD
 | METHOD | URL             | What does it do                           | Filters
 | GET    | `me/events`     | Get All Organizer / User-Favorites Events |
 | POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role
@@ -246,4 +230,3 @@ POST http://DOMAIN/api/auth/signup
 | POST   | `me/events`     | Create One Event Organizer                | Implement Function Check Role   |
 | PUT    | `me/events/:id` | Update Event Organizer                    |                                 |
 | DELETE | `me/events/:id` | Delete Event  Organizer/Favorites         |                                 |
->>>>>>> e7a2692964b09f759096e7bc2c01e8b231d18639
