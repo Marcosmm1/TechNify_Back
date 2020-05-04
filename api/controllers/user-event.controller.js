@@ -68,16 +68,6 @@ function removeToWishesList(req, res) {
     })
 }
 
-// function removeLessonFromUser(req, res) {
-//   UserLesson
-//     .remove({
-//       user: res.locals.user._id,
-//       lesson: req.params.lessonId
-//     })
-//     .then(lessons => res.json(lessons))
-//     .catch((err) => handleError(err, res))
-// }
-
 function updateEvent(req, res) {
   Event
     .findByIdAndUpdate(req.params.id, req.body, {
