@@ -40,7 +40,12 @@ function createEvent(req, res) {
 function getListWishes(req, res) {
   User
     .findById(res.locals.user._id)
-    .populate('wishes_list')
+    .populate({
+      path: 'wishes_list',
+      populate: {
+        path: 'event_type'
+      }
+    })
     .then(user => res.json(user.wishes_list))
     .catch((err) => console.error(error))
 }

@@ -38,8 +38,6 @@ function changePassword(req, res) {
     })
 }
 
-
-
 function getAllUsers(req, res) {
   if (res.locals.user.role === "ADMIN") {
     User
