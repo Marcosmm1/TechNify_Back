@@ -29,7 +29,7 @@ function signup(req, res) {
       },
         process.env.SECRET, // TAKE SECRET KEY FROM .ENV
         {
-          expiresIn: '1w'
+          expiresIn: '7d'
         }
       )
       return res.json({
@@ -71,7 +71,7 @@ function login(req, res) {
           email: user.email
         },
           process.env.SECRET, {
-          expiresIn: '1h'
+          expiresIn: '7d'
         }
         )
 
