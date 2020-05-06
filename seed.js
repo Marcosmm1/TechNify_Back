@@ -11,7 +11,7 @@ const EVENTS = require('./events.json')
 
 const ADMIN = {
   "first_name": "Marcos",
-  "email": "marcos@meraki.com",
+  "email": "marcos@technify.com",
   "password": bcrypt.hashSync('11111111', 10),
   "role": "ADMIN"
 }
