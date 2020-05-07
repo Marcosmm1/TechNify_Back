@@ -161,6 +161,54 @@
           "https://www.eventoplus.com/content/thumbs/960_540/content/imgsxml/galerias/articulos/3454/big-experienciastecnologicas884.jpg"
         ],
         "detail_img": "https://static.wixstatic.com/media/73c818d494564f33883b5a2ffa08fb46.jpg/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/73c818d494564f33883b5a2ffa08fb46.jpg"
+      },
+      {
+        "owner": "5ea8d790e2fca80318e7baed",
+        "name": "Front-Trends",
+        "place": "Ignacego Prądzyńskiego 12/14 01-222 Varsovia, Polonia",
+        "date_start": "2020-05-28",
+        "date_end": "2020-05-31",
+        "price": 450,
+        "event_type": "5ea8aca13d34a72f839cf1d6",
+        "small_description": "Front-Trends, the event focused mainly on front end professionals, reaches its seventh year in the city of Warsaw with this edition.",
+        "large_description": "Front-Trends, the event focused mainly on front end professionals, reaches its seventh year in the city of Warsaw with this edition.A meeting place to see future trends for web developers, interface developers and UX designers, which will feature speakers such as Ida Aalen, Vitaly Friedman, Phil Hawksworth and Zoe Mickley Gillenwater, among others.",
+        "cover_img": [
+          "https://rdiagencia.com/wp-content/uploads/2018/06/tecnologia-1024x576.png",
+          "https://static.wixstatic.com/media/73c818d494564f33883b5a2ffa08fb46.jpg/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/73c818d494564f33883b5a2ffa08fb46.jpg"
+        ],
+        "detail_img": "https://static.wixstatic.com/media/73c818d494564f33883b5a2ffa08fb46.jpg/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/73c818d494564f33883b5a2ffa08fb46.jpg"
+      },
+      {
+        "owner": "5ea8d790e2fca80318e7baed",
+        "name": "Barcelona Mobile World Congress 2020",
+        "place": "Fira Barcelona",
+        "date_start": "2020-09-20",
+        "date_end": "2020-09-25",
+        "price": 650,
+        "event_type": "5ea8aca13d34a72f839cf1d6",
+        "small_description": "The most anticipated global mobile industry event of the year. International reference, it is held during the last week of February at Fira de Barcelona. The main telephone manufacturers in the world attend, as well as some of the most prominent in hardware and telecommunications.",
+        "large_description": "The most anticipated global mobile industry event of the year. International reference, it is held during the last week of February at Fira de Barcelona. The main telephone manufacturers in the world attend, as well as some of the most prominent in hardware and telecommunications.interface developers and UX designers, which will feature speakers such as Ida Aalen, Vitaly Friedman, Phil Hawksworth and Zoe Mickley Gillenwater, among others.",
+        "cover_img": [
+          "https://rdiagencia.com/wp-content/uploads/2018/06/tecnologia-1024x576.png",
+          "https://static.wixstatic.com/media/73c818d494564f33883b5a2ffa08fb46.jpg/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/73c818d494564f33883b5a2ffa08fb46.jpg"
+        ],
+        "detail_img": "https://rdiagencia.com/wp-content/uploads/2018/06/tecnologia-1024x576.png"
+      },
+      {
+        "owner": "5ea8d790e2fca80318e7baed",
+        "name": "ASLAN 2020",
+        "place": "IFEMA",
+        "date_start": "2020-11-20",
+        "date_end": "2020-11-25",
+        "price": 250,
+        "event_type": "5ea8aca13d34a72f839cf1d6",
+        "small_description": "The most anticipated global mobile industry event of the year. International reference, it is held during the last week of February at Fira de Barcelona. The main telephone manufacturers in the world attend, as well as some of the most prominent in hardware and telecommunications.",
+        "large_description": "2020 comes loaded with events, fairs and technology congresses, which are progressing at an unstoppable rate. It is essential to be up-to-date with the advances that directly influence us in our way of working, in the new business models that it creates and in our way of relating in society.The most anticipated global mobile industry event of the year. International reference, it is held during the last week of February at Fira de Barcelona. The main telephone manufacturers in the world attend, as well as some of the most prominent in hardware and telecommunications.",
+        "cover_img": [
+          "https://static.masqueespacios.com/wp-content/uploads/2017/05/auditorio.jpg",
+          "https://www.eventoplus.com/content/thumbs/960_540/content/imgsxml/galerias/articulos/3454/big-experienciastecnologicas884.jpg"
+        ],
+        "detail_img": "https://rdiagencia.com/wp-content/uploads/2018/06/tecnologia-1024x576.png"
       }
     ]
   }
